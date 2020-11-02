@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sem título</title>
+</head>
+
+<script language="javascript" type="text/javascript">
+
+function validaForm () 
+{
+	var campoemail = document.getElementById("textfield");
+	var divretorno = document.getElementById("retorno");
+
+	// Verificar se existe o arroba
+	
+	if (campoemail.value.indexOf('@') == -1) { 
+		alert("Falta o Arroba");
+		divretorno.innerHTML = "Falta o Arroba";
+		return false;
+	}
+	
+	if (campoemail.value.indexOf('.') == -1) { 
+		alert("Dominiu incorreto");
+		divretorno.innerHTML = "Dominiu incorreto";		
+		return false;
+	}
+	
+	var dominio = new String (campoemail.value.substring(campoemail.value.indexOf('@')+1));
+	alert (dominio);
+		
+	return true;	
+}
+
+</script>
+
+<body>
+<p>Digite seu e-mail:</p>
+<form id="form1" name="form1" method="post" action="" onsubmit="return validaForm ()">
+  <p>
+    <input type="text" name="textfield" id="textfield" />
+  </p>
+  <div id="retorno"></div>
+  <p>
+    <input type="submit" name="button" id="button" value="Enviar" />
+  </p>
+</form>
+<p>&nbsp;</p>
+</body>
+</html>

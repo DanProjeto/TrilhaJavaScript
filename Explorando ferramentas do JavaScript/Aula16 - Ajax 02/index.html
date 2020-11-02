@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sem título</title>
+
+<script language="javascript" type="text/javascript">
+// Instanciando o objeto XMLHttpRequest
+if (window.ActiveXObject) // no Internet Explorer
+	ajax = new ActiveXObject("Microsoft.XMLHTTP");
+else if (window.XMLHttpRequest) // nos demais navegadores
+	ajax = new XMLHttpRequest();
+
+ajax.onreadystatechange=function()
+{
+	// testa se o status diz que tudo voltou direito
+	if (ajax.readyState==4)
+	{	
+		// exibimos o conteudo retornado em um alert  
+		// alert(ajax.responseText);
+		var div = document.getElementById("retorno");
+		div.innerHTML = ajax.responseText; 
+	}
+}
+// métodos e propriedades 
+// open -> Abrir a conexão com uma página, ele suporta caminho relativo  e também URL completo
+
+ajax.open("GET", "conteudo.html", true);
+// send -> Executa a chamada e ainda evia variaveis para a página 
+ajax.send(null);
+
+</script>
+
+</head>
+
+<body>
+Nossa página inicial, sem conteúdo 
+<br />	<br />	<br />	<br />
+<div id="retorno"></div>
+</body>
+</html>

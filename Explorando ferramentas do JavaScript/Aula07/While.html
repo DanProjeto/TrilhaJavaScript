@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sem título</title>
+
+
+</head>
+
+<body>
+<script language="javascript" type="text/ecmascript">
+// fazer uma contagem de 0 até 10
+	var contador = 0;
+	while (contador <= 10)
+	{
+		if (contador == 5) {
+			contador	++;
+			break;				 
+		}
+		alert(contador);
+		
+		switch (contador){
+			case 3:
+				alert("o valor de 3 foi atingido");
+				break;
+			default: 
+				alert("não é o valor 3")
+				break;
+		}
+		contador++; 
+	}
+	
+	
+	alert("Entrando no For"); 
+	for (i = 0; i < 5; i++ ){	
+		alert(i)		
+		if (i==3) {
+			break;			
+		}
+	}
+	alert("Saio fora");
+</script>
+</body>
+</html>

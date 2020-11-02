@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mais propriedades Objeto Window</title>
+
+<script language="javascript">
+
+	function confirma () {
+		if (confirm("Deseja Sair ?")) {
+			window.close();
+		}
+	}
+	
+	function executaPrompt () {
+		alert(prompt("Insira um valor"))
+	}
+	
+	var contador = 0
+	
+	Ponteiro = setInterval("soma()", 3000); 
+	
+	function soma () {
+		contador++; 
+		alert (contador); 
+		if (contador == 5) clearInterval(Ponteiro);
+	}
+	
+
+</script>
+
+</head>
+
+<body>
+<p><a href="javascript:alert('Mensagem no alert')">alert()</a></p>
+<p><a href="javascript:confirma()">confirm()</a></p>
+<p><a href="javascript:executaPrompt()">prompt()</a></p>
+</body>
+</html>

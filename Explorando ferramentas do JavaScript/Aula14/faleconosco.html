@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Primeira Página</title>
+<script language="javascript" src="javascript.js" > </script> 
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+</style>
+</head>
+
+<body>
+<table width="776" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" bgcolor="#CCCCCC"><h2>Nosso Site</h2></td>
+  </tr>
+  <tr>
+    <td bgcolor="#EAEAEA"><p><a href="javascript:abrepagina('index.html')">Página inicial</a> | <strong><a href="javascript:abrepagina('faleconosco.html')">Fale Conosco</a></strong><a href="javascript:abrepagina('faleconosco.html')"></a></p></td>
+  </tr>
+  <tr>
+    <td><p>Preencha o forumário abaixo para entrar em contato.</p>
+      <form action="" method="post" onsubmit="return validaContato()" enctype="multipart/form-data" name="frmContato" id="frmContato"> 
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="4">
+          <tr>
+            <td width="24%">Digite o seu nome: *</td>
+            <td width="76%"><input type="text" name="nome" id="nome" /></td>
+          </tr>
+          <tr>
+            <td>Digite o seu e-mail: *</td>
+            <td><input type="text" name="email" id="email" /></td>
+          </tr>
+          <tr>
+            <td>Selecione o seu interesse:</td>
+            <td><select name="interesse" id="interesse">
+              <option value="duvida">Duvida</option>
+              <option value="info">Informação</option>
+              <option value="rec">Reclamação</option>
+              <option value="-1">Selecione uma opção</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>Informe seu sexo:</td>
+            <td><p>
+              <label>
+                <input type="radio" name="Sexo" value="m" id="radio1" />
+                Masculino</label>
+              <br />
+                <label>
+                  <input type="radio" name="Sexo" value="f" id="radio2" />
+                Feminino</label>
+                <br />
+            </p></td>
+          </tr>
+          <tr>
+            <td>Mensagem: *</td>
+            <td><textarea name="mensagem" id="mensagem" cols="45" rows="5"></textarea></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" name="button" id="button" value="Enviar contato" /></td>
+          </tr>
+        </table>
+      </form>
+    <p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

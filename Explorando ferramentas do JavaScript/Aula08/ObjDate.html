@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sem título</title>
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript">
+
+DataAtual = new Date ();
+
+switch (DataAtual.getDay()) {
+	case 0 : dia ="Domingo"; break;
+	case 1 : dia ="Segunda-Feira"; break;	
+	case 2 : dia ="Terça-Feira"; break;		
+	case 3 : dia ="Quarta-Feira"; break;
+	case 4 : dia ="Quinta-Feira"; break;	
+	case 5 : dia ="Sexta-Feira"; break;	
+	case 6 : dia ="Sábado"; break;	
+}
+
+switch (DataAtual.getMonth()) {
+	case 0 : mes ="Janeiro"; break;
+	case 1 : mes ="Fevereiro"; break;	
+	case 2 : mes ="Março"; break;		
+	case 3 : mes ="Abril"; break;
+	case 4 : mes ="Maio"; break;	
+	case 5 : mes ="Junho"; break;	
+	case 6 : mes ="Julho"; break;
+	case 7 : mes ="Agosto"; break;		
+	case 8 : mes ="Setembro"; break;
+	case 9 : mes ="Outubro"; break;	
+	case 10 : mes ="Novembro"; break;	
+	case 11 : mes ="Dezembro"; break;	
+}
+
+if (DataAtual.getHours() >= 0 &&  DataAtual.getHours() <= 6) { saudacao = "Boa Madrugada!"; }
+if (DataAtual.getHours() > 6 &&  DataAtual.getHours() <= 12) { saudacao = "Bom dia!"; }
+if (DataAtual.getHours() > 12 &&  DataAtual.getHours() <= 18) { saudacao = "Boa tarde!"; }
+if (DataAtual.getHours() > 18 ) { saudacao = "Boa noite!"; }
+
+alert("Olá hoje é " + dia  + "," + DataAtual.getDate() + " de "  + mes + "." + saudacao);
+
+
+
+</script>
+</body>
+</html>

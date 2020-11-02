@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tipos de Dados</title>
+<script language="javascript" type="text/javascript">
+
+function TrataInfos  ()
+{
+	var campo1 = document.getElementById('TxtValor1');
+	var campo2 = document.getElementById('TxtValor2');
+	
+	if (campo1.value != "" && campo2.value != "") 
+		alert(eval(campo1.value)+eval(campo2.value));
+	else 
+		alert("informe os dois campos");
+}
+
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="" onclick="retorn false">
+  <p>Valor 01
+    <input type="text" name="TxtValor1" id="TxtValor1" />
+  </p>
+  <p>Valor 02
+    <input type="text" name="TxtValor2" id="TxtValor2" />
+  </p>
+  <p>
+    <input type="button" name="button" id="button" value="Calcular" onclick="TrataInfos ()" />
+  </p>
+</form>
+</body>
+</html>

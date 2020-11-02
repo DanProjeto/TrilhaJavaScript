@@ -1,0 +1,2 @@
+﻿alert("Arquivo externo");
+
