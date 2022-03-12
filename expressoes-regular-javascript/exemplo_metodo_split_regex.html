@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de uso do método split() de string</title>
+    <script>
+    function stringSplit() {
+        var str = "Expressões regulares em JavaScript!";
+        /* Variável n é um array de 6 posições, contendo as substrings
+           separados pelos espaços em branco em str */
+        var n = str.split(/[\t\s\n]/i);
+        alert(n);
+    }
+
+    stringSplit();
+    </script>
+</head>
+
+<body>
+    <h1>Exemplo de uso do método split() de string</h1>
+    <p>Separa a String através de expressões regulares: </p>
+    <p><strong>(\s)</strong> - Procura por espaços</p>
+    <p><strong>(\t)</strong>- tabs</p>
+    <p><strong>(\n)</strong>- quebras de linha</p>
+</body>
+
+</html>

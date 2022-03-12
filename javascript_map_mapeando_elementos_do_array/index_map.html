@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Map na prática</title>
+    <script>
+    var numeros = [1, 2, 3, 4, 5];
+
+    var quadrados = numeros.map(function(item) {
+        return Math.pow(item, 2);
+    });
+
+    var vencedores = [{
+            nome: "Equipe Super",
+            pais: "Brasil"
+        },
+        {
+            nome: "Time Maximo",
+            pais: "EUA"
+        },
+        {
+            nome: "Mega Grupo",
+            pais: "Canadá"
+        }
+    ];
+
+    var podioPorPais = vencedores.map(function(item, indice) {
+        return item.pais;
+    });
+
+    var produtos = [{
+            nome: "Smartphone 5' Android",
+            preco: 1200
+        },
+        {
+            nome: "Notebook 4GB Windows 10",
+            preco: 2100
+        },
+        {
+            nome: "SmartTV 50' LED",
+            preco: 8700
+        }
+    ];
+
+    var quadrados = [25, 16, 9, 4, 1];
+    var raizes = quadrados.map(numero => Math.sqrt(numero));
+
+    var copas = [1958, 1962, 1970, 1994, 2002];
+
+    var titulos = copas.map((ano, indice) => `${indice + 1} : ${ano}`);
+    </script>
+</head>
+
+<body>
+    <h2>Exemplos com o uso do JavaScript Map()</h2>
+    <pre>
+    <script>
+    document.writeln();
+    document.writeln(numeros);
+    document.writeln('A base elevada dos números acima:')
+    document.writeln(quadrados);
+    
+    document.writeln();
+    document.writeln("Lista dos países vencedores: ");
+    document.writeln(podioPorPais);
+    document.writeln();
+
+    document.writeln(quadrados);
+    document.writeln('Raiz quadrada dos números acima: ');
+    document.writeln(raizes);
+    document.writeln();
+
+    document.writeln('Copas do mundo em que títulos foram obtidos:');
+    document.writeln(titulos.join("<br>"));
+    document.writeln();
+
+    var produtosComReajuste = produtos.map(function(item){
+       return {
+       	nome: item.nome,
+       	preco: item.preco * 1.15
+       }
+    });
+    
+    document.writeln("Lista de produtos com Reajuste:")   
+    produtosComReajuste.forEach(function(item){
+    	document.writeln(`${item.nome.padEnd(30)} - ${item.preco.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}`);
+
+
+    });
+
+    </script>
+    </pre>
+    <table id="tbPodio" border="1">
+        <caption>Equipes vencedoras</caption>
+        <thead>
+            <tr>
+                <th>Posição</th>
+                <th>Nome</th>
+                <th>País</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+    var tbPodioPorPais = vencedores.map(function(item, indice) {
+        return `<tr>
+               <td>${indice + 1}</td>
+               <td>${item.nome}</td>
+               <td>${item.pais}</td>
+           </tr>`;
+    });
+
+    document.querySelector("#tbPodio tbody").innerHTML = tbPodioPorPais.join("");
+    </script>
+</body>
+
+</html>

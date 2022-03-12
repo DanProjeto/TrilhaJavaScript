@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>JavaScript Fácil com jQuery - Parte 3</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="js/jquery-1.2.1.js"></script>
+    <style>
+        div.alfa,
+        div.beta {
+            background: lightblue;
+            margin: 2px;
+            padding: 2px 4px;
+            display: inline;
+        }
+
+        div.gama {
+            display: inline;
+            background: #ee7777;
+            padding: 5px;
+        }
+
+        #texto {
+            display: block;
+            margin: 2px;
+        }
+    </style>
+    <script>
+        function exemplo1() {
+            /* Coloca uma borda vermelha nos elementos <div> que possuem 
+                a classe alfa.  */
+            $("div").filter(".alfa").css("border", "2px solid red");
+            /* meuFiltro - Função que retorna true apenas se o índice for 4
+               ou o id for d6 */
+            var meuFiltro = function (index) {
+                return index == 4 || $(this).attr("id") == "d6";
+            };
+            /* Uma borda azul de 2px será colocada nos elementos div retornados */
+            $("div").filter(meuFiltro).css("border", "2px solid blue");
+        };
+
+        function exemplo2() {
+            /* Filtra os filhos do elemento que possui id="grupo", o filtro
+            pega apenas os filhos que possuem a classe "alfa" definida
+            'as três primeiras divs' e depois coloca uma cor marrom
+            como cor de fundo */
+            $("#grupo").children("div.alfa").css("background-color", "tan");
+            /* prev e next - Métodos que pegam respectivamente o elemento 
+               anterior ao #d2 e posterior ao #d5, trocando seus textos. */
+            $("#d2").prev().html("Primeiro");
+            $("#d5").next().html("Último");
+        };
+
+        function exemplo3() {
+            /* Coloca o texto "-inicio" dentro do elemento cujo id é d1.
+               Esse texto é concatenado ao final do que já existia no
+               elemento #d1, resultando no texto "1-inicio" */
+            $("#d1").append("<b>-inicio</b>");
+            /* Coloca o texto no inicio do elemento #d6, virando
+                   "fim-6" */
+            $("#d6").prepend("<b>fim-</b>");
+
+            /* Adiciona respectivamente, textos antes e depois do elemento
+               cujo id é grupo */
+            $("#grupo").before("<div>Antes do grupo</div>");
+            $("#grupo").after("<div>Depois do grupo</div>");
+        };
+
+        function exemplo4() {
+            /* Envolve todos os elementos div que possuem a classe alfa
+               com outro elemento div que possuem a classe gama.
+               A classe gama está definida no html e possui um fundo
+               avermelhado. */
+            $("div.alfa").wrap("<div class='gama'></div>");
+            /* Substitui todo o elemento que possui id="d5" por um novo
+               div com a classe gama, removendo o fundo azul desse elemento */
+            $("#d5").replaceWith("<div class='gama'>5</div>");
+            /* Envolve o conteúdo do elemento cujo id é d6 com um span
+               que aumenta a fonte para 300% */
+            $("#d6").wrapInner("<span style='font-size:300%'></span>");
+        };
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Exemplo 1" onclick="exemplo1()">
+    <input type="button" value="Exemplo 2" onclick="exemplo2()">
+    <input type="button" value="Exemplo 3" onclick="exemplo3()">
+    <input type="button" value="Exemplo 4" onclick="exemplo4()">
+    <br>
+    <span id="texto"></span>
+    <br>
+    <div id="grupo">
+        <div id="d1" class="alfa">1</div>
+        <div id="d2" class="alfa">2</div>
+        <div id="d3" class="alfa">3</div>
+        <div id="d4" class="beta">4</div>
+        <div id="d5" class="beta">5</div>
+        <div id="d6" class="beta">6</div>
+    </div>
+</body>
+
+</html>

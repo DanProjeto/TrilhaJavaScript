@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca em um texto por expressão regular</title>
+    <script>
+    function regexpExec() {
+        /* Cria uma expressão regular (objeto RegExp) e o compara
+            com a string criada */
+        var str = "Expressões regulares em JavaScript!";
+        // Busca ao menos por uma ocorrência da letra "j"
+        var regexp = new RegExp(/[j+]/i);
+        var n = regexp.exec(str);
+        alert(n);
+    }
+    regexpExec();
+    </script>
+</head>
+
+<body>
+    <h1>Exemplo do uso do método exec() de RegExp</h1>
+    <p>O valor retornado em <strong>n</strong>, é a string encontrada através da expressão regular,
+        ou seja a letra <strong>J</strong></p>
+</body>
+
+</html>

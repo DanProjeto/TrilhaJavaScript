@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>JavaScript Fácil com jQuery - Parte 2</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="js/jquery-1.2.1.js"></script>
+    <style>
+        body {
+            font: .8em Verdana, Tahoma, Times;
+        }
+
+        p {
+            margin: .2em;
+        }
+
+        table {
+            font-size: .9em;
+        }
+
+        .importante {
+            color: red;
+        }
+    </style>
+    <script>
+        function exemplo9() {
+            // Formulários
+            /* css - Realça validações nos campos da página, mudando
+               a cor de fundo e a cor da borda, respectivamente */
+            $(":text").css("background-color", "#FFDAB9");
+            $(":password").css("border", "2px solid OrangeRed");
+            // attr - Marca a checkbox do formulário
+            $(":checkbox").attr("checked", "1");
+        };
+
+        function exemplo10() {
+            // Filtros de formulários
+            /* removeAttr - Todos os elementos desabilitados são reabilitados.
+               Esse atributo irá remover o atributo disabled dos elementos */
+            $(":disabled").removeAttr("disabled");
+            /* Remove o atributo selected para limpar a seleção no campo select. */
+            $(":selected").removeAttr("selected");
+        };
+
+        function exemplo11() {
+            // Manipulação de atributos
+            /* Adiciona um atributo dica ao primeiro parágrafo */
+            $("#p1").attr("dica", "Isso é uma dica!");
+            var dica = $("#p1").attr("dica");
+            /* Esse atributo é lido e seu valor é colocado como sendo o
+               HTML do segundo parágrafo, colocado em negrito */
+            $("#p2").html("<strong>" + dica + "</strong>");
+            /* Adiciona o texto abaixo no campo de texto do formulário */
+            $(":text").val("JavaScript com jQuery");
+            /* Troca o texto da última coluna para "tabela" e adiciona a
+               classe importante à mesma */
+            $("td:last").text("tabela").addClass("importante");
+        };
+    </script>
+</head>
+<p id="p1">Página de teste para formulários e manipulação de atributos.</p>
+<p id="p2">Pequeno formulário de exemplo:</p>
+<form>
+    <table cellspacing=0>
+        <tr>
+            <td>Input text:</td>
+            <td><input type="text" name="nome"></td>
+        </tr>
+        <tr>
+            <td>Input password:</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr>
+            <td>Input checkbox:</td>
+            <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+            <td>Input radio (desabilitados):</td>
+            <td>
+                <input type="radio" name=r1 disabled>Radio 1<br>
+                <input type="radio" name=r2 disabled>Radio 2
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <select multiple>
+                    <option selected>Opção 1</option>
+                    <option>Opção2</option>
+                    <option selected>Opção 3</option>
+                    <option>Opção4</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</form>
+<input type="button" value="Exemplo 9" onclick="exemplo9()">
+<input type="button" value="Exemplo 10" onclick="exemplo10()">
+<input type="button" value="Exemplo 11" onclick="exemplo11()">
+
+</html>

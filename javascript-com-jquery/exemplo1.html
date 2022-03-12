@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>JavaScript Fácil com jQuery - Parte 1</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="js/jquery-1.2.1.js"></script>
+    <style>
+        body {
+            font: .8em Verdana, Tahoma, Times;
+            width: 35em;
+        }
+
+        p {
+            margin: .2em;
+        }
+
+        table {
+            font-size: .9em;
+        }
+
+        .invisivel {
+            display: none;
+        }
+
+        .caixa {
+            border: 1px solid #cccccc;
+            width: 38em;
+            padding: .5em;
+            margin: .5em .5em .5em 0;
+        }
+    </style>
+    <script>
+        function exemplo1() {
+            /* $ "p": Seleciona todos os elementos <p> da página 
+               $ "table": Seleciona todas as tabelas da página */
+            /* $ "p".css "background-color", "lightgray": Altera a cor de fundo
+            do elemento <p> para cinza claro. */
+            $("p").css("background-color", "lightgray");
+
+            var obj = {
+                backgroundColor: "yellow",
+                border: "5px solid lightblue"
+            };
+            $("table").css(obj);
+        };
+
+        function exemplo2() {
+            /* Seleciona o elemento cujo id é igual a "caixa" */
+            var $caixa = $("#caixa1");
+            /* Muda a cor do texto no primeiro elemento <p> encontrado
+                para vermelho. */
+            $("p", $caixa).css("color", "red");
+
+            /* Seleciona o elemento cujo id é igual a "p3" */
+            var $p3 = $("#p3");
+            $("strong", $p3).css("color", "blue");
+        };
+
+        function exemplo3() {
+            // Hierarquia
+            /* Marca com cor amarela todas as tabelas que são descendentes
+               de elementos <div> */
+            $("div table").css("background-color", "yellow");
+            /* Pinta de azul claro as linhas da tabela que são filhas diretas
+               de elementos <div> */
+            $("div > table tr").css("background-color", "lightblue");
+            /* Marca em verde claro elementos <em> que vêm logo após
+                elementos <strong> */
+            $("strong + em").css("background-color", "lightgreen");
+        };
+
+        function exemplo4() {
+            // Filtros básicos
+            /* Seleciona as colunas ímpares da primeira tabela e colore elas 
+               como marrom */
+            $("table:first td:odd").css("background-color", "tan");
+            /* Colore de azul as linhas 3 e 4 da última tabela */
+            $("table:last tr:gt(2)").css("background-color", "DeepSkyBlue");
+        };
+
+        function exemplo5() {
+            // Filtros de conteúdo
+            /* Pinta de verde o parágrafo que contém a palavra "tabela" */
+            $("p:contains('tabela')").css("background-color", "#98FB98");
+            /* Pinta de azul o parágrafo que tem um elemento <span> */
+            $("p:has(span)").css("background-color", "#87CEEB");
+        };
+
+        function exemplo6() {
+            // Filtros de visibilidade
+            // hide - Esconde todos os elementos <div> que estão visíveis
+            $("div:visible").hide();
+            /* show - Mostra todos os parágrafos que estavam escondidos
+               na página. */
+            $("p:hidden").show();
+        };
+
+        function exemplo7() {
+            // Filtros de atributos
+            /* Marca em laranja os elementos que possuem o atributo 
+                 javascript-com-jquery */
+            $("[javascript-com-jquery]").css("border", "3px solid OrangeRed");
+            /* Coloca um fundo pardo nos elementos que possuem o valor 5 para
+               o atributo border */
+            $("[border=5]").css("background-color", "DarkKhaki");
+            /* Aplica uma cor azul ao fundo dos elementos que possuem id
+               começando com "coluna" */
+            $("[id^='coluna']").css("background-color", "SkyBlue");
+        };
+
+        function exemplo8() {
+            // Filtros de filhos
+            /* Pega o elemento que possui id="linha-0" e coloca um fundo azul
+               no seu primeiro filho */
+            $("#linha-0 :first-child").css("background-color", "DeepSkyBlue");
+            /* Coloca uma borda laranja nos filhos que são múltiplos de 3 */
+            $("#linha-0 :nth-child(3n)").css("border", "3px solid OrangeRed");
+            /* Pinta de amarelo claro todos os filhos únicos descendentes de
+               elementos <div> */
+            $("div :only-child").css("background-color", "lightyellow");
+        };
+    </script>
+</head>
+
+<body>
+    <p id="p1" class="alfa">Esse é o primeiro parágrafo. O id é "p1" e a classe é "alfa".</p>
+    <p id="p2" class="beta">Esse é o segundo parágrafo. <span> O id é "p2" e a classe é "beta".</span></p>
+    <p id="p3" class="delta" javascript-com-jquery=10>
+        Terceiro parágrafo (id = p3, classe = "delta"). <br>
+        <em>Primeiro texto em itálico</em>
+        <strong>Texto em negrito.</strong>
+        <em>Segundo texto em itálico</em>
+    </p>
+    <p style="display:none;font-size:30px;color:OrangeRed">Este parágrafo estava invisivel.</p>
+    <p class="invisivel" style="font-size:30px;color:OrangeRed">Segundo parágrafo que estava invisivel.</p>
+    Primeira tabela da página:
+    <table border=1>
+        <tr id="linha-0">
+            <td id="coluna-0">A</td>
+            <td id="coluna-1">B</td>
+            <td id="coluna-2">C</td>
+            <td id="col-3">D</td>
+            <td id="col-4">E</td>
+            <td id="col-5">F</td>
+            <td id="col-5">G</td>
+        </tr>
+    </table>
+    <div id="caixa1" class="caixa">
+        <p>Este parágrafo está dentro do DIV "caixa". Veja uma tabela de exemplo:</p>
+        <table class="tabela" border=1>
+            <tr>
+                <td>Célula 1</td>
+                <td>Célula 2</td>
+                <td>Célula 3</td>
+            </tr>
+        </table>
+        <span style="font-weight:bold">
+            Tabela dentro de um span:
+            <table border=5>
+                <tr>
+                    <td>#0</td>
+                </tr>
+                <tr>
+                    <td>#1</td>
+                </tr>
+                <tr>
+                    <td>#2</td>
+                </tr>
+                <tr>
+                    <td>#3</td>
+                </tr>
+                <tr>
+                    <td>#4</td>
+                </tr>
+            </table>
+        </span>
+    </div>
+    <input type="button" value="Exemplo 1" onclick="exemplo1()">
+    <input type="button" value="Exemplo 2" onclick="exemplo2()">
+    <input type="button" value="Exemplo 3" onclick="exemplo3()">
+    <input type="button" value="Exemplo 4" onclick="exemplo4()">
+    <input type="button" value="Exemplo 5" onclick="exemplo5()">
+    <input type="button" value="Exemplo 6" onclick="exemplo6()">
+    <input type="button" value="Exemplo 7" onclick="exemplo7()">
+    <input type="button" value="Exemplo 8" onclick="exemplo8()">
+</body>
+
+</html>

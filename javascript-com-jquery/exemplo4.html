@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>JavaScript Fácil com jQuery - Parte 4</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="js/jquery-1.2.1.js"></script>
+    <style>
+        #area {
+            background: lightblue;
+            width: 50px;
+            height: 50px;
+            margin: 2px;
+        }
+
+        #texto {
+            display: block;
+            margin: 2px;
+        }
+    </style>
+    <script>
+        /* ready - A inicialização dos eventos é feita dentro desse evento
+           do document, pois é o momento em que o DOM está pronto para ser
+           acessado */
+        $(document).ready(function () {
+            /* Dessa forma pega a div que representa o quadrado azul e o
+               armazena na variável $area para que cada evento seja adicionado */
+            var $area = $("#area");
+            /* Tratamento o evento de clique 
+               Quando o usuário clica com o mouse muda a cor de fundo da div
+                  para azul */
+            $area.click(function () {
+                $(this).css("background", "blue");
+                $("#texto").html("click");
+            });
+
+            /* Muda a cor de fundo quando o usuário clica duas vezes na div */
+            $area.dblclick(function () {
+                $(this).css("background", "red");
+                $("#texto").html("double click");
+            });
+
+            /* Muda a cor de fundo quando o mouse é movimentado sobre
+                 a div com id #texto  */
+            $area.mousemove(function () {
+                $(this).css("background", "lightgreen");
+                $("#texto").html("mouse move");
+            });
+
+            /* Quando o mouse que estava pressionado na div é solto
+                mudando a cor de fundo desse elemento */
+            $area.mouseout(function () {
+                $(this).css("background", "tan");
+                $("#texto").html("mouse out");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="area"></div>
+    <div id="texto">Início</div>
+</body>
+
+</html>

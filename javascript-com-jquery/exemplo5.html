@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>JavaScript Fácil com jQuery - Parte 5</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="js/jquery-1.2.1.js"></script>
+    <style>
+        div {
+            background: lightgreen;
+            margin: 3px;
+            width: 80px;
+            height: 40px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            /* Quando o botão "Deslizar" for clicado, o retângulo verde
+              vai deslizar para cima ou para baixo, em uma animação que
+              dura um segundo */
+            $("#deslizar").click(function () {
+                $("div").slideToggle(1000);
+            });
+
+            /* Quando o botão "Desbotar" for clicado vai encadear duas 
+               animações: */
+            $("#desbotar").click(function () {
+                /* A primeira faz o span "Desbotamento" surgir transparente até ficar opaco,
+                  a segunda é o inverso, vai desbotar o span até ele desaparecer.
+                  Cada animação vai durar 300 ms, totalizando 600ms de movimento. */
+                $("span").fadeIn(300).fadeOut(300);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="deslizar">Deslizar</button>
+    <button id="desbotar">Desbotar</button>
+    <div></div>
+    <span style="display:none">Desbotamento</span>
+</body>
+
+</html>

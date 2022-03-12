@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substituição de texto por expressão regular</title>
+    <script>
+    function stringReplace() {
+        var str = "Expressões regulares em JavaScript!";
+        // Troca todas as ocorrÊncias do caractere "j" ou "J" por "I"
+        /* modificadores "ig"
+           * "i" - Garante que não se leve consideração a diferença das 
+           letras serem maiúsculas ou minúsculas na expressão regular 
+           * "g", e faz com que todas as ocorrências encontradas sejam
+            substituídas */
+        var n = str.replace(/[j]/ig, "I");
+        alert(n);
+    }
+
+    stringReplace();
+    </script>
+</head>
+
+<body>
+    <h1>Exemplo de uso do método replace() com RegEx</h1>
+</body>
+
+</html>
